@@ -9,10 +9,15 @@ const props = defineProps<{
 const emit = defineEmits(['play']);
 
 const className = computed(() => props.active ? 'inner-grid active' : 'inner-grid');
+
+const play = (index) => {
+	if (props.active)
+		emit('play', index);
+};
 </script>
 <template>
 	<div :class='className'>
-		<div class='inner-cell' v-for='i in 9' :key='i' :data-index='i - 1' @click='emit("play", i - 1)'>
+		<div class='inner-cell' v-for='i in 9' :key='i' :data-index='i - 1' @click='play(i - 1)'>
 			{{ props.grid[i - 1] }}
 		</div>
 	</div>
