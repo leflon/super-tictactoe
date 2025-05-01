@@ -10,7 +10,7 @@ const emit = defineEmits(['play']);
 
 const className = computed(() => props.active ? 'inner-grid active' : 'inner-grid');
 
-const play = (index) => {
+const play = (index: number) => {
 	if (props.active)
 		emit('play', index);
 };
